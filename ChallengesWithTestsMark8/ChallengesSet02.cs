@@ -1,58 +1,114 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ChallengesWithTestsMark8
 {
     public class ChallengesSet02
     {
-        public bool CharacterIsALetter(char c)
+        public bool CharacterIsALetter(char c) //done
         {
-            throw new NotImplementedException();
+            return char.IsLetter(c);
+            //throw new NotImplementedException();
         }
 
-        public bool CountOfElementsIsEven(string[] vals)
+        public bool CountOfElementsIsEven(string[] vals) //done
         {
-            throw new NotImplementedException();
+            return (vals.Length % 2 == 0);
+            //throw new NotImplementedException();
         }
 
-        public bool IsNumberEven(int number)
+        public bool IsNumberEven(int number) //done
         {
-            throw new NotImplementedException();
+            return (number % 2 == 0);
+            //throw new NotImplementedException();
         }
 
-        public bool IsNumberOdd(int num)
+        public bool IsNumberOdd(int num) //done
         {
-            throw new NotImplementedException();
+            return (num % 2 != 0);
+            //throw new NotImplementedException();
         }
 
-        public double SumOfMinAndMax(IEnumerable<double> numbers)
+        public double SumOfMinAndMax(IEnumerable<double> numbers) //done
         {
-            throw new NotImplementedException();
+            //if(numbers.Count() == 0 || numbers == null)
+            if(numbers == null || numbers.Count() ==0)
+            {
+                return 0;
+            }
+            else
+            {
+                return numbers.Min() + numbers.Max();
+            }
+            //throw new NotImplementedException();
         }
 
-        public int GetLengthOfShortestString(string str1, string str2)
+        public int GetLengthOfShortestString(string str1, string str2) //done
         {
-            throw new NotImplementedException();
+            return (str1.Length > str2.Length) ? str2.Length : str1.Length;
+            //throw new NotImplementedException();
         }
 
-        public int Sum(int[] numbers)
+        public int Sum(int[] numbers) //done
         {
-            throw new NotImplementedException();
+            if (numbers == null)
+            {
+                return 0;
+            }
+            else
+            {
+                //Using Linq = return numbers.Sum();
+                var sum = 0;
+                foreach (int number in numbers)
+                {
+                    sum += number;
+                }
+                return sum;
+            }
+            //throw new NotImplementedException();
         }
 
-        public int SumEvens(int[] numbers)
+        public int SumEvens(int[] numbers) //done
         {
-            throw new NotImplementedException();
+            //var numbersEvens = new int[numbers.Length];
+            if (numbers == null)
+            {
+                return 0;
+            }
+            //Using Linq = return numbers.Where(number => % 2 == 0).Sum();
+            for (var i = numbers.Length -1; i > -1; i--)
+            {
+                if (numbers[i] % 2 != 0)
+                {
+                    numbers[i] = 0;
+                }
+            }
+            return numbers.Sum();
+            //throw new NotImplementedException();
         }
 
-        public bool IsSumOdd(List<int> numbers)
+        public bool IsSumOdd(List<int> numbers) //done
         {
-            throw new NotImplementedException();
+            if(numbers == null)
+            {
+                return false;
+            }
+            return (numbers.Sum() % 2 != 0);
+            //throw new NotImplementedException();
         }
 
-        public long CountOfPositiveOddsBelowNumber(long number)
+        public long CountOfPositiveOddsBelowNumber(long number) //done
         {
-            throw new NotImplementedException();
+            if (number <= 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return number / 2;
+            }
+            //throw new NotImplementedException();
         }
     }
 }
